@@ -3,17 +3,15 @@ package com.invocify.invoice.helper;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
 
 import com.invocify.invoice.entity.Company;
 import com.invocify.invoice.entity.Invoice;
 import com.invocify.invoice.entity.LineItem;
 import com.invocify.invoice.model.CompanyRequest;
 import com.invocify.invoice.model.InvoiceRequest;
-import com.invocify.invoice.model.InvoiceUpdateRequest;
-
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
 
 public class HelperClass {
 
