@@ -1,10 +1,9 @@
-# Capstone Team Project - Invocify Invoice Service
+# Invoice Service - Project
 
-#### Statuses
-![Build and Deploy status](https://github.com/Tech-Student-Labs/invoicify_invoice_svc4/actions/workflows/heroku.yml/badge.svg)
-![Test status](https://github.com/Tech-Student-Labs/invoicify_invoice_svc4/actions/workflows/gradle.yml/badge.svg)
-![Code Coverage](https://github.com/Tech-Student-Labs/invoicify_invoice_svc4/blob/master/.github/badges/jacoco.svg)
-![Branch Coverage](https://github.com/Tech-Student-Labs/invoicify_invoice_svc4/blob/master/.github/badges/branches.svg)
+![Build and Deploy status](https://github.com/vyomrastogi/invoice-service/actions/workflows/heroku.yml/badge.svg)
+![Test status](https://github.com/vyomrastogi/invoice-service/actions/workflows/gradle.yml/badge.svg)
+![Code Coverage](https://github.com/vyomrastogi/invoice-service/blob/main/.github/badges/jacoco.svg)
+![Branch Coverage](https://github.com/vyomrastogi/invoice-service/blob/main/.github/badges/branches.svg)
 
 
 * [Learn Dashboard](https://learn-2.galvanize.com/cohorts/2328)
@@ -29,22 +28,22 @@
 
 ##### Class Relationship
 
-![Class Relationship](https://github.com/Tech-Student-Labs/invoicify_invoice_svc4/blob/master/static/uml-diagram.png)
+![Class Relationship](https://github.com/vyomrastogi/invoice-service/blob/main/static/uml-diagram.png)
 
 ##### Entity Relationship
 
-![Entity Relationship](https://github.com/Tech-Student-Labs/invoicify_invoice_svc4/blob/master/static/er-diagram.png)
+![Entity Relationship](https://github.com/vyomrastogi/invoice-service/blob/main/static/er-diagram.png)
 
 
 _Some highlights of project_
 
 #### Test Coverage Check
 
-![Coverage Report on PR](https://github.com/Tech-Student-Labs/invoicify_invoice_svc4/blob/master/static/github-testrun-summary.png)
+![Coverage Report on PR](https://github.com/vyomrastogi/invoice-service/blob/main/static/github-testrun-summary.png)
 
 
 #### Logging 
 
-![Logging](https://github.com/Tech-Student-Labs/invoicify_invoice_svc4/blob/master/static/logging-dashboard.png)
+![Logging](https://github.com/vyomrastogi/invoice-service/blob/main/static/logging-dashboard.png)
 
 
