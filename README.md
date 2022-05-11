@@ -40,12 +40,12 @@ _Some highlights of project_
 
 #### Test Coverage Check
 
-![Coverage Report on PR](https://github.com/Tech-Student-Labs/invoicify_invoice_svc4/blob/master/static/github-testrun-summary.png)
+![Coverage Report on PR](https://github.com/Tech-Student-Labs/invoicify_invoice_svc4/blob/master/static/github-testrun-summary.PNG)
 
 
 #### Logging 
 
-![Logging](https://github.com/Tech-Student-Labs/invoicify_invoice_svc4/blob/master/static/logging-dashboard.png)
+![Logging](https://github.com/Tech-Student-Labs/invoicify_invoice_svc4/blob/master/static/logging-dashboard.PNG)
 
 
 #### Useful Links 
