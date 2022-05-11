@@ -3,7 +3,7 @@ name: App Build & Deploy
 on:
   # When PRs are merged, the push event is triggered for the target branch.
   push:
-    branches: [ master ]
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
