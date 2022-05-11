@@ -48,3 +48,5 @@ _Some highlights of project_
 ![Logging](https://github.com/Tech-Student-Labs/invoicify_invoice_svc4/blob/master/static/logging-dashboard.png)
 
 
+#### Useful Links 
+[heroku terraform provider](https://registry.terraform.io/providers/heroku/heroku/latest/docs)
