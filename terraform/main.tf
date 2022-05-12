@@ -1,4 +1,4 @@
-
+#add common terraform configurations here, e.g. providers
 terraform {
   required_providers {
     heroku = {
