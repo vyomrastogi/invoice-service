@@ -8,6 +8,12 @@ variable "postgres_plan" {
   description = "name of add-on plan for postgres-service"
 }
 
+variable "logging_plan" {
+  type        = string
+  nullable    = false
+  description = "name of add-on plan for coralogix logging"
+}
+
 resource "heroku_app" "invoice-service-demo" {
   name   = var.heroku_app_name
   region = "us"
@@ -21,6 +27,12 @@ resource "heroku_app" "invoice-service-demo" {
 resource "heroku_addon" "invoice-service-db" {
   app_id = heroku_app.invoice-service-demo.id
   plan   = var.postgres_plan
+}
+
+# add logging plan
+resource "heroku_addon" "invoice-service-logging" {
+   app_id = heroku_app.invoice-service-demo.id
+   plan = var.logging_plan
 }
 
 #save db url in local variable for resuse
