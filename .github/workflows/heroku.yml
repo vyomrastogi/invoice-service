@@ -33,15 +33,11 @@ jobs:
     steps:
       - name: Checkout branch
         uses: actions/checkout@v2
-      - name: Login to Heroku Container Registry
-        env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY_PROD }}
-        run: heroku container:login
-      - name: Push image to registry
-        env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY_PROD }}
-        run: heroku container:push -a ${{secrets.HEROKU_APP_NAME_PROD}} web
-      - name: Release
-        env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY_PROD }}
-        run: heroku container:release -a ${{ secrets.HEROKU_APP_NAME_PROD }} web
+      - name: Deploy to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY_PROD}}
+          heroku_app_name: ${{secrets.HEROKU_APP_NAME_DEMO}}
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
+          usedocker: true
+          docker_heroku_process_type: web
