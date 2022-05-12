@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: 
       name: Demo
-      url: https://invoice-service-${{secrets.HEROKU_APP_NAME_PROD}}.herokuapp.com/swagger-ui.html
+      url: https://invoice-service-vrdemo.herokuapp.com/swagger-ui.html
     needs: build
 
     steps:
