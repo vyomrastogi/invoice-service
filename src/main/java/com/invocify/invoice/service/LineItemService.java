@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class LineItemService {
 
-    private LineItemRepository lineItemRepository;
+  private LineItemRepository lineItemRepository;
 
-    public LineItem createLineItem(LineItem lineItem) {
-        return lineItemRepository.save(lineItem);
-    }
+  public LineItem createLineItem(LineItem lineItem) {
+    return lineItemRepository.save(lineItem);
+  }
 }

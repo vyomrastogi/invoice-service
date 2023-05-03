@@ -10,7 +10,6 @@ import static org.mockito.Mockito.when;
 import com.invocify.invoice.entity.Company;
 import com.invocify.invoice.helper.HelperClass;
 import com.invocify.invoice.repository.CompanyRepository;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -20,28 +19,21 @@ import org.mockito.junit.jupiter.MockitoExtension;
 @ExtendWith(MockitoExtension.class)
 public class CompanyServiceUnitTest {
 
+  @InjectMocks private CompanyService companyService;
 
-   @InjectMocks
-   private CompanyService companyService;
+  @Mock private CompanyRepository companyRepository;
 
-   @Mock
-   private CompanyRepository companyRepository;
+  @Test
+  public void createCompany() {
+    when(companyRepository.save(any(Company.class))).thenReturn((HelperClass.expectedCompany()));
+    Company actual = companyService.createCompany(HelperClass.requestCompanyRequest());
 
-
-
-
-
-   @Test
-    public void createCompany() {
-       when(companyRepository.save(any(Company.class))).thenReturn((HelperClass.expectedCompany()));
-       Company actual = companyService.createCompany(HelperClass.requestCompanyRequest());
-
-       assertNotNull(actual.getId());
-       assertEquals("Amazon", actual.getName());
-       assertEquals("233 Siliconvalley", actual.getStreet());
-       assertEquals("LA", actual.getCity());
-       assertEquals("California", actual.getState());
-       assertEquals("75035", actual.getPostalCode());
-       verify(companyRepository, times(1)).save(any(Company.class));
-   }
+    assertNotNull(actual.getId());
+    assertEquals("Amazon", actual.getName());
+    assertEquals("233 Siliconvalley", actual.getStreet());
+    assertEquals("LA", actual.getCity());
+    assertEquals("California", actual.getState());
+    assertEquals("75035", actual.getPostalCode());
+    verify(companyRepository, times(1)).save(any(Company.class));
+  }
 }
