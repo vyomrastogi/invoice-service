@@ -7,63 +7,63 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import com.invocify.invoice.entity.LineItem;
+import com.invocify.invoice.repository.LineItemRepository;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.UUID;
-
-import com.invocify.invoice.entity.LineItem;
-import com.invocify.invoice.repository.LineItemRepository;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class LineItemServiceTest {
 
-    LineItemRepository lineItemRepository;
-    LineItemService lineItemService;
+  LineItemRepository lineItemRepository;
+  LineItemService lineItemService;
 
-    @BeforeEach
-    public void initialize() {
-        lineItemRepository = mock(LineItemRepository.class);
-        lineItemService = new LineItemService(lineItemRepository);
-    }
+  @BeforeEach
+  public void initialize() {
+    lineItemRepository = mock(LineItemRepository.class);
+    lineItemService = new LineItemService(lineItemRepository);
+  }
 
-    @Test
-    public void createLineItem_flatRate() {
+  @Test
+  public void createLineItem_flatRate() {
 
-        LineItem expectedLineItem = LineItem.builder()
-                .description("tdd")
-                .rate(new BigDecimal(10.00).setScale(2, RoundingMode.HALF_EVEN))
-                .rateType("flat")
-                .id(UUID.randomUUID())
-                .build();
+    LineItem expectedLineItem =
+        LineItem.builder()
+            .description("tdd")
+            .rate(new BigDecimal(10.00).setScale(2, RoundingMode.HALF_EVEN))
+            .rateType("flat")
+            .id(UUID.randomUUID())
+            .build();
 
-        when(lineItemRepository.save(any(LineItem.class))).thenReturn(expectedLineItem);
+    when(lineItemRepository.save(any(LineItem.class))).thenReturn(expectedLineItem);
 
-        LineItem actualLineItem = lineItemService.createLineItem(expectedLineItem);
-        assertEquals(expectedLineItem, actualLineItem);
-        assertEquals(expectedLineItem.getRate(), actualLineItem.getTotalFees());
-        verify(lineItemRepository, times(1)).save(any(LineItem.class));
+    LineItem actualLineItem = lineItemService.createLineItem(expectedLineItem);
+    assertEquals(expectedLineItem, actualLineItem);
+    assertEquals(expectedLineItem.getRate(), actualLineItem.getTotalFees());
+    verify(lineItemRepository, times(1)).save(any(LineItem.class));
+  }
 
-    }
+  @Test
+  public void createLineItem_RateBased() {
 
-    @Test
-    public void createLineItem_RateBased() {
+    LineItem expectedLineItem =
+        LineItem.builder()
+            .description("tdd")
+            .rate(new BigDecimal(10.00).setScale(2, RoundingMode.HALF_EVEN))
+            .rateType("rate")
+            .quantity(2)
+            .id(UUID.randomUUID())
+            .build();
 
-        LineItem expectedLineItem = LineItem.builder()
-                .description("tdd")
-                .rate(new BigDecimal(10.00).setScale(2, RoundingMode.HALF_EVEN))
-                .rateType("rate")
-                .quantity(2)
-                .id(UUID.randomUUID())
-                .build();
+    when(lineItemRepository.save(any(LineItem.class))).thenReturn(expectedLineItem);
 
-        when(lineItemRepository.save(any(LineItem.class))).thenReturn(expectedLineItem);
-
-        LineItem actualLineItem = lineItemService.createLineItem(expectedLineItem);
-        assertEquals(expectedLineItem, actualLineItem);
-        assertEquals(expectedLineItem.getRate().multiply(new BigDecimal(expectedLineItem.getQuantity())), actualLineItem.getTotalFees());
-        verify(lineItemRepository, times(1)).save(any(LineItem.class));
-
-    }
+    LineItem actualLineItem = lineItemService.createLineItem(expectedLineItem);
+    assertEquals(expectedLineItem, actualLineItem);
+    assertEquals(
+        expectedLineItem.getRate().multiply(new BigDecimal(expectedLineItem.getQuantity())),
+        actualLineItem.getTotalFees());
+    verify(lineItemRepository, times(1)).save(any(LineItem.class));
+  }
 }
